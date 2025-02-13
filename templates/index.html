@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine's Question</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #ff69b4;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        #noBtn {
+            background-color: #ff4444;
+            color: white;
+            padding: 15px 32px;
+            font-size: 16px;
+        }
+        .meme-image {
+            max-width: 20%;
+            height: auto;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <a href="https://ibb.co/tTxkgNyg"><img src="https://i.ibb.co/ZpYt5wy5/image1.jpg" alt="image1" class="meme-image"></a>
+    <h1>Will you be my valentine?</h1>
+    <div class="button-container">
+        <button id="yesBtn" onclick="window.location.href='/success'">Yes</button>
+        <button id="noBtn" onclick="handleNoClick()">No</button>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        function handleNoClick() {
+            clickCount++;
+            if (clickCount >= 5) {
+                window.location.href = '/sad';
+            } else {
+                const yesBtn = document.getElementById('yesBtn');
+                const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+                yesBtn.style.fontSize = `${currentSize * 2.2}px`;
+            }
+        }
+    </script>
+</body>
+</html>
